@@ -1,0 +1,15 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': articleLike > 0,
+                'list-group-item-danger': articleLike < 0 }">
+  <div class="container">
+    <div class="row">
+      <h4 class= "col-9" [ngStyle]="{color: getColor()}">Article : {{ postTitle }}</h4>
+      <p class= "col-3"> Posté le : {{ lastUpdate | date: "dd/MM/yyyy" }} </p>
+    </div>
+  </div>
+  <hr>
+  <p [ngStyle]="{color: getColor()}"> {{ getContent() }}</p>
+  <hr>
+  <button class=" btn btn-success" (click)="onLike()"> Love It </button>
+  <button class=" btn btn-danger" (click)="onDislike()"> Don't Love It </button>
+</li>
